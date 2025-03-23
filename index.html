@@ -7,7 +7,6 @@
     <style>
         body {
             display: flex;
-            flex-direction: column;
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
@@ -22,6 +21,7 @@
             flex: 1;
             padding: 20px;
             background: #eae6da;
+            overflow-y: auto;
         }
         h1 {
             text-align: center;
@@ -51,6 +51,21 @@
             padding: 10px;
             background: #fff;
             border-radius: 5px;
+        }
+        .discord-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #5865F2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .discord-button:hover {
+            background: #4752C4;
         }
         @media (max-width: 768px) {
             body {
@@ -90,32 +105,5 @@
         <div id="personal" class="content">
             <h3>Personal Topics</h3>
             <ul>
-                <li onclick="toggleTopic('personal1')">Self Improvement</li>
-                <div id="personal1" class="topic-content">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</div>
-                <li onclick="toggleTopic('personal2')">Hobbies</li>
-                <div id="personal2" class="topic-content">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</div>
-            </ul>
-        </div>
-        <div id="shopping" class="content">
-            <h3>Shopping Topics</h3>
-            <ul>
-                <li onclick="toggleTopic('shopping1')">Online Shopping Tips</li>
-                <div id="shopping1" class="topic-content">Excepteur sint occaecat cupidatat non proident.</div>
-                <li onclick="toggleTopic('shopping2')">Best Deals</li>
-                <div id="shopping2" class="topic-content">Sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-            </ul>
-        </div>
-    </div>
-    <script>
-        function showContent(category) {
-            document.querySelectorAll('.content').forEach(el => el.style.display = 'none');
-            document.getElementById(category).style.display = 'block';
-        }
-        
-        function toggleTopic(topicId) {
-            let topic = document.getElementById(topicId);
-            topic.style.display = topic.style.display === 'block' ? 'none' : 'block';
-        }
-    </script>
-</body>
-</html>
+                <li onclick="toggl
+                
