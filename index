@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .sidebar {
+            width: 250px;
+            background: #ccc;
+            padding: 20px;
+        }
+        .main {
+            flex: 1;
+            padding: 20px;
+            background: #eae6da;
+        }
+        h2 {
+            color: #444;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: #ddd;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .task-input {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        input, button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        input {
+            flex: 1;
+            background: #fff;
+        }
+        button {
+            background: #888;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Categories</h2>
+        <ul id="category-list">
+            <li>Work</li>
+            <li>Personal</li>
+            <li>Shopping</li>
+        </ul>
+    </div>
+    <div class="main">
+        <h2>Tasks</h2>
+        <ul id="task-list"></ul>
+        <div class="task-input">
+            <input type="text" id="task-input" placeholder="Add a new task...">
+            <button onclick="addTask()">Add</button>
+        </div>
+    </div>
+    <script>
+        function addTask() {
+            let taskInput = document.getElementById("task-input");
+            let taskList = document.getElementById("task-list");
+            if (taskInput.value.trim() !== "") {
+                let li = document.createElement("li");
+                li.textContent = taskInput.value;
+                taskList.appendChild(li);
+                taskInput.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
