@@ -12,6 +12,7 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
+            position: relative;
         }
         .sidebar {
             width: 250px;
@@ -51,6 +52,21 @@
             padding: 10px;
             background: #fff;
             border-radius: 5px;
+        }
+        .discord-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #5865F2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .discord-button:hover {
+            background: #4752C4;
         }
         @media (max-width: 768px) {
             body {
@@ -106,6 +122,9 @@
             </ul>
         </div>
     </div>
+    
+    <a href="https://discord.gg/YOUR_INVITE_LINK" class="discord-button" target="_blank">Join Discord</a>
+    
     <script>
         function showContent(category) {
             document.querySelectorAll('.content').forEach(el => el.style.display = 'none');
