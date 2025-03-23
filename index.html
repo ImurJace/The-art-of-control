@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Manager</title>
+    <title>Documentation</title>
     <style>
         body {
             display: flex;
@@ -36,24 +36,8 @@
             border-radius: 5px;
             cursor: pointer;
         }
-        .task-input {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        input, button {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-        }
-        input {
-            flex: 1;
-            background: #fff;
-        }
-        button {
-            background: #888;
-            color: white;
-            cursor: pointer;
+        .content {
+            display: none;
         }
     </style>
 </head>
@@ -61,29 +45,39 @@
     <div class="sidebar">
         <h2>Categories</h2>
         <ul id="category-list">
-            <li>Work</li>
-            <li>Personal</li>
-            <li>Shopping</li>
+            <li onclick="showContent('work')">Work</li>
+            <li onclick="showContent('personal')">Personal</li>
+            <li onclick="showContent('shopping')">Shopping</li>
         </ul>
     </div>
     <div class="main">
-        <h2>Tasks</h2>
-        <ul id="task-list"></ul>
-        <div class="task-input">
-            <input type="text" id="task-input" placeholder="Add a new task...">
-            <button onclick="addTask()">Add</button>
+        <h2>Documentation</h2>
+        <div id="work" class="content">
+            <h3>Work Topics</h3>
+            <ul>
+                <li>Project Management</li>
+                <li>Team Collaboration</li>
+            </ul>
+        </div>
+        <div id="personal" class="content">
+            <h3>Personal Topics</h3>
+            <ul>
+                <li>Self Improvement</li>
+                <li>Hobbies</li>
+            </ul>
+        </div>
+        <div id="shopping" class="content">
+            <h3>Shopping Topics</h3>
+            <ul>
+                <li>Online Shopping Tips</li>
+                <li>Best Deals</li>
+            </ul>
         </div>
     </div>
     <script>
-        function addTask() {
-            let taskInput = document.getElementById("task-input");
-            let taskList = document.getElementById("task-list");
-            if (taskInput.value.trim() !== "") {
-                let li = document.createElement("li");
-                li.textContent = taskInput.value;
-                taskList.appendChild(li);
-                taskInput.value = "";
-            }
+        function showContent(category) {
+            document.querySelectorAll('.content').forEach(el => el.style.display = 'none');
+            document.getElementById(category).style.display = 'block';
         }
     </script>
 </body>
