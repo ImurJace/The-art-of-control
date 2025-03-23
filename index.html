@@ -39,6 +39,13 @@
         .content {
             display: none;
         }
+        .topic-content {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -55,22 +62,28 @@
         <div id="work" class="content">
             <h3>Work Topics</h3>
             <ul>
-                <li>Project Management</li>
-                <li>Team Collaboration</li>
+                <li onclick="toggleTopic('work1')">Project Management</li>
+                <div id="work1" class="topic-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                <li onclick="toggleTopic('work2')">Team Collaboration</li>
+                <div id="work2" class="topic-content">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
             </ul>
         </div>
         <div id="personal" class="content">
             <h3>Personal Topics</h3>
             <ul>
-                <li>Self Improvement</li>
-                <li>Hobbies</li>
+                <li onclick="toggleTopic('personal1')">Self Improvement</li>
+                <div id="personal1" class="topic-content">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</div>
+                <li onclick="toggleTopic('personal2')">Hobbies</li>
+                <div id="personal2" class="topic-content">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</div>
             </ul>
         </div>
         <div id="shopping" class="content">
             <h3>Shopping Topics</h3>
             <ul>
-                <li>Online Shopping Tips</li>
-                <li>Best Deals</li>
+                <li onclick="toggleTopic('shopping1')">Online Shopping Tips</li>
+                <div id="shopping1" class="topic-content">Excepteur sint occaecat cupidatat non proident.</div>
+                <li onclick="toggleTopic('shopping2')">Best Deals</li>
+                <div id="shopping2" class="topic-content">Sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
             </ul>
         </div>
     </div>
@@ -78,6 +91,11 @@
         function showContent(category) {
             document.querySelectorAll('.content').forEach(el => el.style.display = 'none');
             document.getElementById(category).style.display = 'block';
+        }
+        
+        function toggleTopic(topicId) {
+            let topic = document.getElementById(topicId);
+            topic.style.display = topic.style.display === 'block' ? 'none' : 'block';
         }
     </script>
 </body>
