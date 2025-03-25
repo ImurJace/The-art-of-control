@@ -140,6 +140,21 @@
             box-sizing: border-box;
         }
     }
+    .sticky-header {
+    position: sticky;
+    top: 0;
+    background: #eae6da;
+    padding: 10px 0;
+    z-index: 50;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.sticky-header h2 {
+    margin: 0;
+    padding-left: 10px;
+    font-size: 1.2em;
+    color: #4e3b31;
+}
 </style>
 
 </head>
@@ -159,8 +174,11 @@
     </ul>
 </div>
 
-    <div class="main">
+<div class="main">
+    <div class="sticky-header">
         <h2>Documentation</h2>
+    </div>
+
     <!-- Home Section -->
     <div id="home" class="content">
         <h3>The Art of Control</h3>
