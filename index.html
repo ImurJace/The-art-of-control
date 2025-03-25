@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation</title>
+    <title>MBTI Types</title>
     <style>
         body {
             display: flex;
@@ -31,45 +31,39 @@
         h2 {
             color: #444;
         }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            background: #ddd;
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .content {
-            display: none;
-        }
-        .topic-content {
-            display: none;
-            margin-top: 10px;
-            padding: 10px;
+        .category {
             background: #fff;
-            border-radius: 5px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+            max-width: 600px;
         }
-.discord-button {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background: #5865F2;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-    z-index: 99999; /* Ensure it stays on top */
-    display: block; /* Ensure it renders */
-}
-.discord-button:hover {
-    background: #4752C4;
-}
+        .category h2 {
+            color: #3e3228;
+        }
+        .type {
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .discord-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #5865F2;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+            z-index: 99999;
+            display: block;
+        }
+        .discord-button:hover {
+            background: #4752C4;
+        }
         @media (max-width: 768px) {
             body {
                 flex-direction: column;
