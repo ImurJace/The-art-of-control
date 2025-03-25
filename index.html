@@ -4,85 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation</title>
-    <style>
+<style>
+    body {
+        display: flex;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+    }
+    .sidebar {
+        width: 250px;
+        background: #e8dbc0; /* Soft khaki background for sidebar */
+        padding: 20px;
+        box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for separation */
+        position: fixed;
+        height: 100vh;
+    }
+    .sidebar h1 {
+        color: #3e3228; /* Darker text for heading */
+        font-size: 1.5em;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+    }
+    .sidebar li {
+        background: #d2c18d; /* Slightly darker khaki for list items */
+        margin: 5px 0;
+        padding: 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+    .sidebar li:hover {
+        background: #b1a276; /* Hover effect for sidebar items */
+    }
+
+    .main {
+        flex: 1;
+        margin-left: 250px; /* Ensures content doesn't overlap with the sidebar */
+        padding: 20px;
+        background: #eae6da; /* Light beige background for the main content */
+        overflow-y: auto;
+    }
+    .main h2 {
+        color: #3e3228; /* Darker text color for headings */
+        font-size: 1.3em;
+        margin-top: 30px;
+    }
+
+    .content {
+        display: none;
+    }
+
+    .topic-content {
+        display: none;
+        margin-top: 10px;
+        padding: 15px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for topic content */
+    }
+
+    .discord-button {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        background: #5865F2;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+        z-index: 99999;
+        display: block;
+    }
+    .discord-button:hover {
+        background: #4752C4;
+    }
+
+    @media (max-width: 768px) {
         body {
-            display: flex;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            flex-direction: column;
         }
         .sidebar {
-            width: 250px;
-            background: #ccc;
-            padding: 20px;
+            width: 100%;
+            height: auto;
+            text-align: center;
+            position: relative;
         }
         .main {
-            flex: 1;
-            padding: 20px;
-            background: #eae6da;
-            overflow-y: auto;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        h2 {
-            color: #444;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            background: #ddd;
-            margin: 5px 0;
             padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
+            margin-left: 0;
         }
-        .content {
-            display: none;
+        .sidebar ul {
+            padding-left: 20px; /* Align sidebar list items */
         }
-        .topic-content {
-            display: none;
-            margin-top: 10px;
-            padding: 10px;
-            background: #fff;
-            border-radius: 5px;
+        .sidebar li {
+            text-align: center; /* Center-align sidebar items */
         }
-.discord-button {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background: #5865F2;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-    z-index: 99999; /* Ensure it stays on top */
-    display: block; /* Ensure it renders */
-}
-.discord-button:hover {
-    background: #4752C4;
-}
-        @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                text-align: center;
-            }
-            .main {
-                padding: 10px;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
     <div class="sidebar">
@@ -97,32 +123,39 @@
     </div>
     <div class="main">
         <h2>Documentation</h2>
-        <div id="home" class="content">
-    <h3>The Art of Control</h3>
-    <p>Mastering control is the ability to shape our environment, reactions, and actions to lead us toward personal growth and success. It involves understanding and harnessing the forces of our minds, behaviors, and interactions with others to navigate life effectively. The art of control is about self-awareness, discipline, and adaptability—key qualities that empower us to take charge of our destiny.</p>
+    <!-- Home Section -->
+    <div id="home" class="content">
+        <h3>The Art of Control</h3>
+        <p>Mastering control is the ability to shape our environment, reactions, and actions to lead us toward personal growth and success. It involves understanding and harnessing the forces of our minds, behaviors, and interactions with others to navigate life effectively. The art of control is about self-awareness, discipline, and adaptability—key qualities that empower us to take charge of our destiny.</p>
 
-    <h4>The Power of Self-Control</h4>
-    <ul>
-        <li><strong>Self-Discipline</strong> – The foundation of control, enabling individuals to stay focused on goals and remain consistent despite distractions or challenges.</li>
-        <li><strong>Emotional Regulation</strong> – Being aware of one’s emotions and responses, allowing for more rational decisions in moments of stress or conflict.</li>
-        <li><strong>Decision-Making Mastery</strong> – Cultivating the ability to make thoughtful, deliberate choices by weighing options, anticipating outcomes, and avoiding impulsive decisions.</li>
-    </ul>
+        <div class="box">
+            <h4>The Power of Self-Control</h4>
+            <ul>
+                <li><strong>Self-Discipline</strong> – The foundation of control, enabling individuals to stay focused on goals and remain consistent despite distractions or challenges.</li>
+                <li><strong>Emotional Regulation</strong> – Being aware of one’s emotions and responses, allowing for more rational decisions in moments of stress or conflict.</li>
+                <li><strong>Decision-Making Mastery</strong> – Cultivating the ability to make thoughtful, deliberate choices by weighing options, anticipating outcomes, and avoiding impulsive decisions.</li>
+            </ul>
+        </div>
 
-    <h4>The Role of External Control</h4>
-    <ul>
-        <li><strong>Leadership & Influence</strong> – The ability to lead with empathy, communicate effectively, and inspire others to act toward a common purpose.</li>
-        <li><strong>Conflict Resolution</strong> – Mastering the art of resolving disagreements with a clear mind, finding common ground, and maintaining constructive relationships.</li>
-        <li><strong>Strategic Thinking</strong> – Utilizing foresight and planning to manage resources, time, and actions in order to achieve long-term goals.</li>
-    </ul>
+        <div class="box">
+            <h4>The Role of External Control</h4>
+            <ul>
+                <li><strong>Leadership & Influence</strong> – The ability to lead with empathy, communicate effectively, and inspire others to act toward a common purpose.</li>
+                <li><strong>Conflict Resolution</strong> – Mastering the art of resolving disagreements with a clear mind, finding common ground, and maintaining constructive relationships.</li>
+                <li><strong>Strategic Thinking</strong> – Utilizing foresight and planning to manage resources, time, and actions in order to achieve long-term goals.</li>
+            </ul>
+        </div>
 
-    <h4>How Control Shapes Our Lives</h4>
-    <p>Control influences every facet of life, from personal habits to professional success:</p>
-    <ul>
-        <li><strong>Personal Growth:</strong> Mastering control allows for continual improvement and self-mastery, helping individuals reach their full potential.</li>
-        <li><strong>Professional Success:</strong> Those with a strong sense of control are able to navigate challenges, make decisive choices, and lead others toward success.</li>
-        <li><strong>Relationships:</strong> Control in relationships means having the awareness and communication skills to create harmonious connections and resolve conflicts effectively.</li>
-    </ul>
-</div>
+        <div class="box">
+            <h4>How Control Shapes Our Lives</h4>
+            <p>Control influences every facet of life, from personal habits to professional success:</p>
+            <ul>
+                <li><strong>Personal Growth:</strong> Mastering control allows for continual improvement and self-mastery, helping individuals reach their full potential.</li>
+                <li><strong>Professional Success:</strong> Those with a strong sense of control are able to navigate challenges, make decisive choices, and lead others toward success.</li>
+                <li><strong>Relationships:</strong> Control in relationships means having the awareness and communication skills to create harmonious connections and resolve conflicts effectively.</li>
+            </ul>
+        </div>
+    </div>
 
         <div id="mbti" class="content">
             <h3>MBTI Types</h3>
