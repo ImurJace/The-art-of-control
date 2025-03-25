@@ -10,19 +10,19 @@
         height: 100vh;
         margin: 0;
         font-family: Arial, sans-serif;
-        background-color: #f4f0e1; /* Light beige background */
+        background-color: #f4f0e1;
     }
 
     .sidebar {
-        width: 250px;
-        background: #d6c49c; /* Khaki background for sidebar */
+        width: 200px; /* Reduced width */
+        background: #d6c49c;
         padding: 20px;
-        box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for separation */
+        box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
     }
 
     .sidebar h1 {
-        color: #4e3b31; /* Darker brown text for heading */
-        font-size: 1.5em;
+        color: #4e3b31;
+        font-size: 1.4em;
         text-align: center;
         margin-bottom: 20px;
     }
@@ -30,31 +30,32 @@
     .sidebar ul {
         list-style: none;
         padding: 0;
+        margin: 0;
     }
 
     .sidebar li {
-        background: #b3a27f; /* Slightly darker khaki for list items */
-        margin: 5px 0;
-        padding: 12px;
+        background: #b3a27f;
+        margin: 8px 0;
+        padding: 10px;
         border-radius: 8px;
         cursor: pointer;
         transition: background 0.3s ease;
+        font-size: 0.95em;
     }
 
     .sidebar li:hover {
-        background: #9e8b64; /* Hover effect for sidebar items */
+        background: #9e8b64;
     }
 
     .main {
         flex: 1;
-        margin-left: 250px; /* Ensures content doesn't overlap with the sidebar */
-        padding: 20px;
-        background: #eae6da; /* Light beige background for the main content */
+        padding: 30px;
+        background: #eae6da;
         overflow-y: auto;
     }
 
     .main h2 {
-        color: #4e3b31; /* Dark brown for headings */
+        color: #4e3b31;
         font-size: 1.3em;
         margin-top: 30px;
     }
@@ -64,12 +65,12 @@
     }
 
     .topic-content {
-        display: block; /* Default display for topic content when visible */
+        display: block;
         margin-top: 10px;
         padding: 15px;
         background: #fff;
         border-radius: 8px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for topic content */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     }
 
     .discord-button {
@@ -85,7 +86,6 @@
         font-size: 16px;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
         z-index: 99999;
-        display: block;
     }
 
     .discord-button:hover {
@@ -105,16 +105,20 @@
         }
 
         .main {
-            padding: 10px;
-            margin-left: 0;
+            padding: 15px;
         }
 
         .sidebar ul {
-            padding-left: 20px; /* Align sidebar list items */
+            padding-left: 0;
         }
 
         .sidebar li {
-            text-align: center; /* Center-align sidebar items */
+            text-align: center;
+        }
+
+        .discord-button {
+            left: 50%;
+            transform: translateX(-50%);
         }
     }
 </style>
