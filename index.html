@@ -92,35 +92,43 @@
         background: #4752C4;
     }
 
-    @media (max-width: 768px) {
-        body {
-            flex-direction: column;
-        }
-
-        .sidebar {
-            width: 100%;
-            height: auto;
-            text-align: center;
-            position: relative;
-        }
-
-        .main {
-            padding: 15px;
-        }
-
-        .sidebar ul {
-            padding-left: 0;
-        }
-
-        .sidebar li {
-            text-align: center;
-        }
-
-        .discord-button {
-            left: 50%;
-            transform: translateX(-50%);
-        }
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        overflow-x: hidden; /* Prevent horizontal scroll */
     }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        text-align: center;
+        position: relative;
+        padding: 20px 10px;
+        box-sizing: border-box;
+    }
+
+    .main {
+        padding: 15px;
+        margin-left: 0 !important; /* Override any leftover margin */
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .sidebar ul {
+        padding-left: 0;
+        margin: 0;
+    }
+
+    .sidebar li {
+        text-align: center;
+        font-size: 1em;
+    }
+
+    .discord-button {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
 </style>
 </head>
 <body>
