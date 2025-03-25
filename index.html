@@ -10,21 +10,18 @@
         height: 100vh;
         margin: 0;
         font-family: Arial, sans-serif;
-        background-color: #f5f5f5;
+        background-color: #f4f0e1; /* Light beige background */
     }
 
     .sidebar {
         width: 250px;
-        background: #e8dbc0; /* Soft khaki background for sidebar */
+        background: #d6c49c; /* Khaki background for sidebar */
         padding: 20px;
         box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for separation */
-        position: fixed;
-        height: 100vh;
-        overflow-y: auto; /* Allows scrolling in case content exceeds sidebar height */
     }
 
     .sidebar h1 {
-        color: #3e3228; /* Darker text for heading */
+        color: #4e3b31; /* Darker brown text for heading */
         font-size: 1.5em;
         text-align: center;
         margin-bottom: 20px;
@@ -36,7 +33,7 @@
     }
 
     .sidebar li {
-        background: #d2c18d; /* Slightly darker khaki for list items */
+        background: #b3a27f; /* Slightly darker khaki for list items */
         margin: 5px 0;
         padding: 12px;
         border-radius: 8px;
@@ -45,7 +42,7 @@
     }
 
     .sidebar li:hover {
-        background: #b1a276; /* Hover effect for sidebar items */
+        background: #9e8b64; /* Hover effect for sidebar items */
     }
 
     .main {
@@ -54,12 +51,10 @@
         padding: 20px;
         background: #eae6da; /* Light beige background for the main content */
         overflow-y: auto;
-        height: 100vh; /* Ensure the main content takes full height */
-        box-sizing: border-box; /* Prevents any overflow issue */
     }
 
     .main h2 {
-        color: #3e3228; /* Darker text color for headings */
+        color: #4e3b31; /* Dark brown for headings */
         font-size: 1.3em;
         margin-top: 30px;
     }
@@ -75,8 +70,6 @@
         background: #fff;
         border-radius: 8px;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for topic content */
-        height: auto; /* Let content grow based on its height */
-        overflow: hidden; /* Ensure it doesn't overflow */
     }
 
     .discord-button {
