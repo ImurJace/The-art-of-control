@@ -92,46 +92,60 @@
         background: #4752C4;
     }
 
+/* Hamburger button */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #4e3b31;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    background: #d6c49c;
+    border-bottom-right-radius: 12px;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    body {
-        flex-direction: column;
-        overflow-x: hidden; /* Prevent horizontal scroll */
+    .hamburger {
+        display: block;
     }
 
     .sidebar {
-        width: 100%;
-        height: auto;
-        text-align: center;
-        position: relative;
-        padding: 20px 10px;
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 250px;
+        background: #d6c49c;
+        padding: 60px 20px 20px 20px;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
+        z-index: 9999;
+        overflow-y: auto;
         box-sizing: border-box;
+    }
+
+    .sidebar.open {
+        display: block;
     }
 
     .main {
+        margin-left: 0 !important;
         padding: 15px;
-        margin-left: 0 !important; /* Override any leftover margin */
         width: 100%;
         box-sizing: border-box;
     }
-
-    .sidebar ul {
-        padding-left: 0;
-        margin: 0;
-    }
-
-    .sidebar li {
-        text-align: center;
-        font-size: 1em;
-    }
-
-    .discord-button {
-        left: 50%;
-        transform: translateX(-50%);
-    }
 }
+
 </style>
 </head>
 <body>
+    <!-- Hamburger Icon -->
+<div class="hamburger" onclick="toggleSidebar()">&#9776;</div>
+
     <div class="sidebar">
         <h1>The Art of Control</h1>
         <h2>Categories</h2>
@@ -689,16 +703,27 @@
 
 <a href="https://discord.gg/BsAAubPyHA" class="discord-button" target="_blank">Join Our Discord</a>
 
-    <script>
-        function showContent(category) {
-            document.querySelectorAll('.content').forEach(el => el.style.display = 'none');
-            document.getElementById(category).style.display = 'block';
+<script>
+    function showContent(category) {
+        document.querySelectorAll('.content').forEach(el => el.style.display = 'none');
+        document.getElementById(category).style.display = 'block';
+
+        // Optional: auto-close sidebar on mobile after selection
+        const sidebar = document.getElementById('sidebar');
+        if (window.innerWidth <= 768) {
+            sidebar.classList.remove('open');
         }
-        
-        function toggleTopic(topicId) {
-            let topic = document.getElementById(topicId);
-            topic.style.display = topic.style.display === 'block' ? 'none' : 'block';
-        }
-    </script>
+    }
+
+    function toggleTopic(topicId) {
+        let topic = document.getElementById(topicId);
+        topic.style.display = topic.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('open');
+    }
+</script>
 </body>
 </html>
