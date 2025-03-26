@@ -5,34 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation</title>
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: #f4f0e1;
-        overflow-x: hidden;
-    }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f0e1;
+    overflow-x: hidden;
+}
 
-    .container {
-        display: flex;
-        height: 100vh;
-    }
+.container {
+    display: flex;
+}
 
-    .sidebar {
-        width: 200px;
-        height: 100vh;
-        background: #d6c49c;
-        padding: 20px;
-        box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-    }
-
+.sidebar {
+    width: 200px;
+    background: #d6c49c;
+    padding: 20px;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
     .sidebar h1 {
         color: #4e3b31;
         font-size: 1.4em;
@@ -61,14 +59,15 @@
         background: #9e8b64;
     }
 
-    .main {
-        margin-left: 200px; /* account for sidebar */
-        padding: 30px 30px 30px 40px;
-        background: #eae6da;
-        overflow-y: auto;
-        min-height: 100vh;
-        box-sizing: border-box;
-    }
+.main {
+    margin-left: 200px; /* only needed because sidebar is fixed */
+    padding: 30px 30px 30px 30px;
+    background: #eae6da;
+    min-height: 100vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
 
     .main h2 {
         color: #4e3b31;
@@ -140,10 +139,10 @@
             display: flex;
         }
 
-        .main {
-            margin-left: 0 !important;
-            padding: 80px 15px 15px 15px; /* push content below hamburger */
-        }
+.main {
+    margin-left: 0 !important;
+    padding: 80px 15px 15px 15px; /* make room for hamburger */
+}
     }
 </style>
 
