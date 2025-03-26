@@ -6,17 +6,20 @@
     <title>Documentation</title>
 <style>
     body {
-        display: flex;
-        height: 100vh;
         margin: 0;
         font-family: Arial, sans-serif;
         background-color: #f4f0e1;
         overflow-x: hidden;
     }
 
+    .container {
+        display: flex;
+        height: 100vh;
+    }
+
     .sidebar {
         width: 200px;
-        height: 100vh; /* Always full height */
+        height: 100vh;
         background: #d6c49c;
         padding: 20px;
         box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
@@ -24,6 +27,10 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
     }
 
     .sidebar h1 {
@@ -55,18 +62,18 @@
     }
 
     .main {
-        flex: 1;
-        padding: 30px;
-        padding-left: 40px; /* space between sidebar and content */
+        margin-left: 200px; /* account for sidebar */
+        padding: 30px 30px 30px 40px;
         background: #eae6da;
         overflow-y: auto;
+        min-height: 100vh;
         box-sizing: border-box;
     }
 
     .main h2 {
         color: #4e3b31;
         font-size: 1.3em;
-        margin-top: 30px;
+        margin-top: 0;
     }
 
     .content {
@@ -110,12 +117,12 @@
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 10000;
+        z-index: 10001;
         background: #d6c49c;
         border-bottom-right-radius: 12px;
     }
 
-    /* Responsive adjustments */
+    /* Mobile Responsive */
     @media (max-width: 768px) {
         .hamburger {
             display: block;
@@ -123,52 +130,50 @@
 
         .sidebar {
             display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
             width: 250px;
-            background: #d6c49c;
-            padding: 60px 20px 20px 20px;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
-            z-index: 9999;
-            overflow-y: auto;
-            box-sizing: border-box;
+            height: 100vh;
+            position: fixed;
+            padding-top: 60px;
         }
 
         .sidebar.open {
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
         }
 
         .main {
             margin-left: 0 !important;
-            padding: 15px;
-            padding-top: 60px; /* avoid hamburger overlap */
-            width: 100%;
-            box-sizing: border-box;
+            padding: 80px 15px 15px 15px; /* push content below hamburger */
         }
     }
 </style>
+
 
 </head>
 <body>
 <!-- Hamburger Button -->
 <div class="hamburger" onclick="toggleSidebar()">&#9776;</div>
 
-<!-- Sidebar -->
-<div class="sidebar" id="sidebar">
-    <h1>The Art of Control</h1>
-    <h2>Categories</h2>
-    <ul id="category-list">
-        <li onclick="showContent('home')">Home Page</li>
-        <li onclick="showContent('mbti')">MBTI Types</li>
-        <li onclick="showContent('philia')">Philia Classification</li>
-        <li onclick="showContent('category2')">Dark Psychology & Influence</li>
-    </ul>
+<div class="container">
+    <div class="sidebar" id="sidebar">
+        <h1>The Art of Control</h1>
+        <h2>Categories</h2>
+        <ul id="category-list">
+            <li onclick="showContent('home')">Home Page</li>
+            <li onclick="showContent('mbti')">MBTI Types</li>
+            <li onclick="showContent('philia')">Philia Classification</li>
+            <li onclick="showContent('category2')">Dark Psychology & Influence</li>
+        </ul>
+        <a href="https://discord.gg/yourserver" class="discord-button">Join Our Discord</a>
+    </div>
 
-    <a href="https://discord.gg/yourserverlink" class="discord-button">Join Our Discord</a>
+    <div class="main">
+        <!-- Your content goes here -->
+        <div id="home" class="content" style="display: block;">
+            <h2>The Art of Control</h2>
+            <p>Mastering control is the ability...</p>
+        </div>
+        <!-- Other content sections -->
+    </div>
 </div>
 
 
