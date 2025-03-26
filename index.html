@@ -10,21 +10,21 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f0e1;
     overflow-x: hidden;
-    display: flex;
-    height: auto; /* ✅ remove 100vh */
 }
 
 .sidebar {
     width: 200px;
     height: 100vh;
+    position: fixed; /* ✅ Stays in place while scrolling */
+    top: 0;
+    left: 0;
     background: #d6c49c;
     padding: 20px;
-    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: relative;
 }
 
 .sidebar h1 {
@@ -55,11 +55,28 @@ body {
     background: #9e8b64;
 }
 
+.discord-button {
+    background: #5865F2;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.discord-button:hover {
+    background: #4752C4;
+}
+
 .main {
-    flex: 1;
-    padding: 30px;
+    margin-left: 200px; /* ✅ offset sidebar width */
+    padding: 30px 30px 30px 30px;
     background: #eae6da;
-    overflow-y: auto; /* optional — remove if body scroll handles it */
+    min-height: 100vh;
     box-sizing: border-box;
 }
 
@@ -82,23 +99,7 @@ body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.discord-button {
-    background: #5865F2;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-    text-align: center;
-    margin-top: 20px;
-}
-
-.discord-button:hover {
-    background: #4752C4;
-}
-
+/* Hamburger Button */
 .hamburger {
     display: none;
     font-size: 28px;
@@ -113,26 +114,23 @@ body {
     border-bottom-right-radius: 12px;
 }
 
-/* Mobile */
+/* Responsive for Mobile */
 @media (max-width: 768px) {
-    body {
-        flex-direction: column;
-        height: auto;
-    }
-
     .hamburger {
         display: block;
     }
 
     .sidebar {
         display: none;
-        width: 100%;
-        height: auto;
+        width: 250px;
+        height: 100vh;
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 1000;
+        z-index: 9999;
         padding-top: 60px;
+        background: #d6c49c;
+        overflow-y: auto;
     }
 
     .sidebar.open {
@@ -141,7 +139,7 @@ body {
     }
 
     .main {
-        margin: 0;
+        margin-left: 0 !important;
         padding: 80px 15px 15px 15px;
         width: 100%;
         box-sizing: border-box;
@@ -151,7 +149,6 @@ body {
 
 
 </head>
-<body>
 <body>
     <div class="hamburger" onclick="toggleSidebar()">&#9776;</div>
 
