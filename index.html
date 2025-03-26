@@ -155,6 +155,30 @@
     font-size: 1.2em;
     color: #4e3b31;
 }
+    .category-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    position: absolute;
+    left: 210px; /* pushes it just outside the sidebar */
+    top: 50%;
+    transform: rotate(180deg) translateY(50%);
+    transform-origin: left center;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #4e3b31;
+    background: #eae6da;
+    padding: 10px;
+    border-radius: 10px 0 0 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+}
+
+@media (max-width: 768px) {
+    .category-label {
+        display: none; /* Hide on mobile */
+    }
+}
+
 </style>
 
 </head>
@@ -177,7 +201,7 @@
 <div class="sticky-header" id="stickyHeader">
     <h2>Documentation</h2> <!-- This will get updated -->
 </div>
-
+<div class="category-label" id="categoryLabel">Documentation</div>
 
     <!-- Home Section -->
     <div id="home" class="content">
@@ -725,39 +749,34 @@
 <a href="https://discord.gg/BsAAubPyHA" class="discord-button" target="_blank">Join Our Discord</a>
 
 <script>
-    function showContent(category) {
-        document.querySelectorAll('.content').forEach(el => el.style.display = 'none');
-        document.getElementById(category).style.display = 'block';
+function showContent(category) {
+    document.querySelectorAll('.content').forEach(el => el.style.display = 'none');
+    document.getElementById(category).style.display = 'block';
 
-        // Update sticky header text
-        const header = document.getElementById('stickyHeader');
-        let title = '';
-
-        switch (category) {
-            case 'home':
-                title = 'Home Page';
-                break;
-            case 'mbti':
-                title = 'MBTI Types';
-                break;
-            case 'philia':
-                title = 'Philia Classification';
-                break;
-            case 'category2':
-                title = 'Dark Psychology & Influence';
-                break;
-            default:
-                title = 'Documentation';
-        }
-
-        header.querySelector('h2').textContent = title;
-
-        // Auto-close sidebar on mobile
-        const sidebar = document.getElementById('sidebar');
-        if (window.innerWidth <= 768) {
-            sidebar.classList.remove('open');
-        }
+    const label = document.getElementById('categoryLabel');
+    switch (category) {
+        case 'home':
+            label.textContent = 'Home Page';
+            break;
+        case 'mbti':
+            label.textContent = 'MBTI Types';
+            break;
+        case 'philia':
+            label.textContent = 'Philia Classification';
+            break;
+        case 'category2':
+            label.textContent = 'Dark Psychology & Influence';
+            break;
+        default:
+            label.textContent = 'Documentation';
     }
+
+    // Auto-close sidebar on mobile
+    const sidebar = document.getElementById('sidebar');
+    if (window.innerWidth <= 768) {
+        sidebar.classList.remove('open');
+    }
+}
     function toggleTopic(topicId) {
         let topic = document.getElementById(topicId);
         topic.style.display = topic.style.display === 'block' ? 'none' : 'block';
