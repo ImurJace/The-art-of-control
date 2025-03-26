@@ -11,14 +11,19 @@
         margin: 0;
         font-family: Arial, sans-serif;
         background-color: #f4f0e1;
-        overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+        overflow-x: hidden;
     }
 
     .sidebar {
         width: 200px;
+        height: 100vh; /* Always full height */
         background: #d6c49c;
         padding: 20px;
         box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     .sidebar h1 {
@@ -32,6 +37,7 @@
         list-style: none;
         padding: 0;
         margin: 0;
+        flex-grow: 1;
     }
 
     .sidebar li {
@@ -51,8 +57,10 @@
     .main {
         flex: 1;
         padding: 30px;
+        padding-left: 40px; /* space between sidebar and content */
         background: #eae6da;
         overflow-y: auto;
+        box-sizing: border-box;
     }
 
     .main h2 {
@@ -75,9 +83,6 @@
     }
 
     .discord-button {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
         background: #5865F2;
         color: white;
         padding: 12px 25px;
@@ -86,7 +91,9 @@
         font-weight: bold;
         font-size: 16px;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-        z-index: 99999;
+        display: block;
+        text-align: center;
+        margin-top: 20px;
     }
 
     .discord-button:hover {
@@ -130,17 +137,19 @@
         }
 
         .sidebar.open {
-            display: block;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .main {
             margin-left: 0 !important;
             padding: 15px;
+            padding-top: 60px; /* avoid hamburger overlap */
             width: 100%;
             box-sizing: border-box;
         }
     }
-
 </style>
 
 </head>
@@ -158,7 +167,10 @@
         <li onclick="showContent('philia')">Philia Classification</li>
         <li onclick="showContent('category2')">Dark Psychology & Influence</li>
     </ul>
+
+    <a href="https://discord.gg/yourserverlink" class="discord-button">Join Our Discord</a>
 </div>
+
 
     <!-- Home Section -->
     <div id="home" class="content">
@@ -247,8 +259,6 @@
     </ul>
 </div>
 
-        <a href="https://discord.gg/BsAAubPyHA" class="discord-button" target="_blank">Join Our Discord</a>
-
 <div id="philia" class="content">
     <h3>Philia Classification</h3>
 
@@ -316,8 +326,6 @@
         <li><strong>Sciophile</strong> – Prefers shade and dark, shadowed environments.</li>
     </ul>
 </div>
-
-        <a href="https://discord.gg/BsAAubPyHA" class="discord-button" target="_blank">Join Our Discord</a>
         
 <div id="category2" class="content">
     <h3>Dark Psychology & Influence</h3>
@@ -701,9 +709,6 @@
     <p>Growth is a continuous journey. A commitment to lifelong learning—through books, courses, mentors, and experiences—expands knowledge and adaptability. Surrounding oneself with <strong>growth-oriented individuals</strong>, engaging in <strong>self-reflection</strong>, and stepping outside comfort zones accelerates personal development. Adopting a <strong>growth mindset</strong> (viewing challenges as opportunities rather than obstacles) fosters resilience and a passion for self-improvement.</p>
     <p>The most successful individuals are those who remain open to learning and evolving. By embracing curiosity and the pursuit of knowledge, they continue to refine their skills and expand their understanding of the world.</p>
 </div>
-
-
-<a href="https://discord.gg/BsAAubPyHA" class="discord-button" target="_blank">Join Our Discord</a>
 
 <script>
 function showContent(category) {
