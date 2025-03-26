@@ -9,9 +9,9 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f0e1;
-    overflow: hidden;
-    height: 100vh;
+    overflow-x: hidden;
     display: flex;
+    height: auto; /* ✅ remove 100vh */
 }
 
 .sidebar {
@@ -59,7 +59,7 @@ body {
     flex: 1;
     padding: 30px;
     background: #eae6da;
-    overflow-y: auto;
+    overflow-y: auto; /* optional — remove if body scroll handles it */
     box-sizing: border-box;
 }
 
