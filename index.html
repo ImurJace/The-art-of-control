@@ -9,15 +9,14 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f0e1;
-    overflow-x: hidden;
-}
-
-.container {
+    overflow: hidden;
+    height: 100vh;
     display: flex;
 }
 
 .sidebar {
     width: 200px;
+    height: 100vh;
     background: #d6c49c;
     padding: 20px;
     box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
@@ -25,134 +24,137 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+    position: relative;
 }
-    .sidebar h1 {
-        color: #4e3b31;
-        font-size: 1.4em;
-        text-align: center;
-        margin-bottom: 20px;
-    }
 
-    .sidebar ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        flex-grow: 1;
-    }
+.sidebar h1 {
+    color: #4e3b31;
+    font-size: 1.4em;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-    .sidebar li {
-        background: #b3a27f;
-        margin: 8px 0;
-        padding: 10px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background 0.3s ease;
-        font-size: 0.95em;
-    }
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
 
-    .sidebar li:hover {
-        background: #9e8b64;
-    }
+.sidebar li {
+    background: #b3a27f;
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 0.95em;
+}
+
+.sidebar li:hover {
+    background: #9e8b64;
+}
 
 .main {
-    margin-left: 200px; /* only needed because sidebar is fixed */
-    padding: 30px 30px 30px 30px;
+    flex: 1;
+    padding: 30px;
     background: #eae6da;
-    min-height: 100vh;
     overflow-y: auto;
     box-sizing: border-box;
 }
 
+.main h2 {
+    color: #4e3b31;
+    font-size: 1.3em;
+    margin-top: 0;
+}
 
-    .main h2 {
-        color: #4e3b31;
-        font-size: 1.3em;
-        margin-top: 0;
+.content {
+    display: none;
+}
+
+.topic-content {
+    display: block;
+    margin-top: 10px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.discord-button {
+    background: #5865F2;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.discord-button:hover {
+    background: #4752C4;
+}
+
+.hamburger {
+    display: none;
+    font-size: 28px;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #4e3b31;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    background: #d6c49c;
+    border-bottom-right-radius: 12px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        height: auto;
     }
 
-    .content {
-        display: none;
-    }
-
-    .topic-content {
-        display: block;
-        margin-top: 10px;
-        padding: 15px;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .discord-button {
-        background: #5865F2;
-        color: white;
-        padding: 12px 25px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 16px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-        display: block;
-        text-align: center;
-        margin-top: 20px;
-    }
-
-    .discord-button:hover {
-        background: #4752C4;
-    }
-
-    /* Hamburger button */
     .hamburger {
+        display: block;
+    }
+
+    .sidebar {
         display: none;
-        font-size: 28px;
-        padding: 10px 20px;
-        cursor: pointer;
-        color: #4e3b31;
+        width: 100%;
+        height: auto;
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 10001;
-        background: #d6c49c;
-        border-bottom-right-radius: 12px;
+        z-index: 1000;
+        padding-top: 60px;
     }
 
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-        .hamburger {
-            display: block;
-        }
+    .sidebar.open {
+        display: flex;
+        flex-direction: column;
+    }
 
-        .sidebar {
-            display: none;
-            width: 250px;
-            height: 100vh;
-            position: fixed;
-            padding-top: 60px;
-        }
-
-        .sidebar.open {
-            display: flex;
-        }
-
-.main {
-    margin-left: 0 !important;
-    padding: 80px 15px 15px 15px; /* make room for hamburger */
+    .main {
+        margin: 0;
+        padding: 80px 15px 15px 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
 }
-    }
 </style>
 
 
 </head>
 <body>
-<!-- Hamburger Button -->
-<div class="hamburger" onclick="toggleSidebar()">&#9776;</div>
+<body>
+    <div class="hamburger" onclick="toggleSidebar()">&#9776;</div>
 
-<div class="container">
     <div class="sidebar" id="sidebar">
         <h1>The Art of Control</h1>
         <h2>Categories</h2>
@@ -162,18 +164,18 @@ body {
             <li onclick="showContent('philia')">Philia Classification</li>
             <li onclick="showContent('category2')">Dark Psychology & Influence</li>
         </ul>
-        <a href="https://discord.gg/yourserver" class="discord-button">Join Our Discord</a>
+        <a href="https://discord.gg/yourlink" class="discord-button">Join Our Discord</a>
     </div>
 
     <div class="main">
-        <!-- Your content goes here -->
         <div id="home" class="content" style="display: block;">
             <h2>The Art of Control</h2>
-            <p>Mastering control is the ability...</p>
+            <p>Welcome...</p>
         </div>
-        <!-- Other content sections -->
+        <!-- more .content divs -->
     </div>
-</div>
+</body>
+
 
 
     <!-- Home Section -->
