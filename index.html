@@ -140,41 +140,11 @@
             box-sizing: border-box;
         }
     }
-.category-label {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    position: fixed;
-    left: 200px; /* Match your sidebar width */
-    top: 50%;
-    transform: rotate(180deg) translateY(50%);
-    transform-origin: left center;
-    font-size: 1em;
-    font-weight: bold;
-    color: #4e3b31;
-    background: #eae6da;
-    padding: 10px;
-    width: 40px; /* Fixed width for all categories */
-    height: 150px; /* Consistent height */
-    border-radius: 10px 0 0 10px;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    text-align: center;
-}
-
-@media (max-width: 768px) {
-    .category-label {
-        display: none; /* Hide on mobile */
-    }
-}
 
 </style>
 
 </head>
 <body>
-<div class="category-label" id="categoryLabel">Documentation</div>
 <!-- Hamburger Button -->
 <div class="hamburger" onclick="toggleSidebar()">&#9776;</div>
 
@@ -737,25 +707,13 @@
 
 <script>
 function showContent(category) {
+    // Hide all content sections
     document.querySelectorAll('.content').forEach(el => el.style.display = 'none');
-    document.getElementById(category).style.display = 'block';
 
-    const label = document.getElementById('categoryLabel');
-    switch (category) {
-        case 'home':
-            label.textContent = 'Home Page';
-            break;
-        case 'mbti':
-            label.textContent = 'MBTI Types';
-            break;
-        case 'philia':
-            label.textContent = 'Philia Classification';
-            break;
-        case 'category2':
-            label.textContent = 'Dark Psychology & Influence';
-            break;
-        default:
-            label.textContent = 'Documentation';
+    // Show the selected one
+    const selected = document.getElementById(category);
+    if (selected) {
+        selected.style.display = 'block';
     }
 
     // Auto-close sidebar on mobile
@@ -764,6 +722,7 @@ function showContent(category) {
         sidebar.classList.remove('open');
     }
 }
+
     function toggleTopic(topicId) {
         let topic = document.getElementById(topicId);
         topic.style.display = topic.style.display === 'block' ? 'none' : 'block';
